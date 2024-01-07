@@ -1,6 +1,8 @@
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class Data {
 
@@ -14,13 +16,16 @@ public class Data {
 		
 		Instant d06 = Instant.parse("1999-12-15T01:56:25Z");
 		Instant d07 = Instant.parse("1999-12-15T01:56:25-03:00");
-				
-		System.out.println("d01 = " + d01.toString());
+		
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy").withZone(ZoneId.systemDefault()); 
+		
+		System.out.println("d01 = " + d01.format(fmt1));
 		System.out.println("d02 = " + d02.toString());
 		System.out.println("d03 = " + d03.toString());
 		System.out.println("d04 = " + d04.toString());
 		System.out.println("d05 = " + d05.toString());
-		System.out.println("d06 = " + d06.toString());
+		System.out.println("d06 = " + fmt2.format(d06));
 		System.out.println("d07 = " + d07.toString());
 	}
 
