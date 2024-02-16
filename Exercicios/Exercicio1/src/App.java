@@ -1,6 +1,4 @@
-package app;
-
-import entities.Financing;
+import Entities.Financing;
 
 public class App {
 
